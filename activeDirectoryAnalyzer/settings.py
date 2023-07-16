@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-njk9*qt^$-lv2al8muqhu&^y4@0lni!tf83v8le%n!w(nfp!9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["nesimi.local"]
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'analyzer.apps.AnalyzerConfig',
     'rest_framework'
 ]
@@ -49,8 +50,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ALLOWED_ORIGINS = [
+    'http://nesimi.local',
+]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = [
+    'GET',
+]
 ROOT_URLCONF = 'activeDirectoryAnalyzer.urls'
 
 TEMPLATES = [
