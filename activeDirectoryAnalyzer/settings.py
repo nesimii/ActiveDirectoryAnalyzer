@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-njk9*qt^$-lv2al8muqhu&^y4@0lni!tf83v8le%n!w(nfp!9a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["nesimi.local"]
+ALLOWED_HOSTS = ["localhost", "nesimi.local"]
 
 # Application definition
 
@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     'http://nesimi.local',
+    'http://localhost',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = [
