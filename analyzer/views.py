@@ -1,8 +1,15 @@
 # Create your views here.
+from django.http import JsonResponse
 from rest_framework import generics
 
 from analyzer.neomodel.models import Group, User, Computer
 from analyzer.neomodel.serializers import GroupSerializer, UserSerializer, ComputerSerializer
+
+
+def get_group_by_dis_name(request, distinguishedName):
+    group = Group.nodes.get(distinguishedName=distinguishedName)
+    serializer = GroupSerializer(group)
+    return JsonResponse({'data': serializer.data})
 
 
 class GroupsListView(generics.ListAPIView):
